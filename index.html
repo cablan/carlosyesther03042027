@@ -1,76 +1,157 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Carlos & Esther 💍</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background: linear-gradient(to bottom, #fdf6f0, #f7e7e1);
-      color: #333;
-      text-align: center;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carlos & Esther 💍</title>
 
-    .container {
-      padding: 60px 20px;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: #fdf6f0;
+  color: #333;
+  text-align: center;
+}
 
-    h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-    }
+section {
+  padding: 60px 20px;
+}
 
-    h2 {
-      font-weight: normal;
-      color: #777;
-    }
+h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
 
-    .heart {
-      font-size: 2em;
-      margin: 20px 0;
-    }
+h2 {
+  margin-bottom: 20px;
+}
 
-    .date {
-      font-size: 1.5em;
-      margin-top: 30px;
-    }
+.hero {
+  background: linear-gradient(to bottom, #f7e7e1, #fdf6f0);
+}
 
-    .box {
-      background: white;
-      padding: 30px;
-      margin: 40px auto;
-      max-width: 500px;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
+.box {
+  background: white;
+  padding: 25px;
+  margin: 20px auto;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
 
-    footer {
-      margin-top: 40px;
-      font-size: 0.9em;
-      color: #aaa;
-    }
-  </style>
+.countdown {
+  font-size: 1.5em;
+  margin-top: 20px;
+}
+
+.map iframe {
+  width: 100%;
+  height: 300px;
+  border: 0;
+  border-radius: 10px;
+}
+
+a.button {
+  display: inline-block;
+  padding: 12px 20px;
+  margin-top: 15px;
+  background: #d4a373;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+footer {
+  padding: 30px;
+  font-size: 0.9em;
+  color: #888;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
-    <h1>Carlos & Esther</h1>
-    <div class="heart">💍 ❤️ 💍</div>
-    <h2>¡Nos casamos!</h2>
+<!-- HERO -->
+<section class="hero">
+  <h1>Carlos & Esther</h1>
+  <p>💍 ❤️ 💍</p>
+  <h2>¡Nos casamos!</h2>
+  <p><strong>3 de abril de 2027</strong></p>
 
-    <div class="box">
-      <p class="date">Próximamente...</p>
-      <p>Esta es nuestra web de boda 💫</p>
-      <p>Si estás viendo esto, es que funciona 🎉</p>
-    </div>
+  <div class="countdown" id="countdown"></div>
+</section>
 
-    <footer>
-      Hecho con ❤️ para nuestra boda
-    </footer>
+<!-- HISTORIA -->
+<section>
+  <div class="box">
+    <h2>Nuestra historia 💕</h2>
+    <p>
+      Todo empezó con una casualidad...  
+      y acabó convirtiéndose en la mejor decisión de nuestras vidas.
+    </p>
   </div>
+</section>
+
+<!-- EVENTO -->
+<section>
+  <div class="box">
+    <h2>Detalles del evento 📍</h2>
+    <p><strong>Ceremonia:</strong> Iglesia por definir</p>
+    <p><strong>Celebración:</strong> Finca por definir</p>
+    <p><strong>Hora:</strong> 18:00h</p>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section>
+  <div class="box map">
+    <h2>Cómo llegar 🗺️</h2>
+    <iframe 
+      src="https://www.google.com/maps?q=Madrid&output=embed">
+    </iframe>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section>
+  <div class="box">
+    <h2>Confirmación de asistencia 📝</h2>
+    <p>Por favor, confirma tu asistencia:</p>
+    <a class="button" href="https://forms.gle/" target="_blank">
+      Confirmar asistencia
+    </a>
+  </div>
+</section>
+
+<!-- EXTRA -->
+<section>
+  <div class="box">
+    <h2>Detalles adicionales 🎉</h2>
+    <p>Dress code: Elegante</p>
+    <p>¡Habrá música, comida y fiesta!</p>
+  </div>
+</section>
+
+<footer>
+  Hecho con ❤️ por Carlos & Esther
+</footer>
+
+<script>
+// CUENTA ATRÁS
+const countdown = document.getElementById("countdown");
+const weddingDate = new Date("April 3, 2027 18:00:00").getTime();
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = weddingDate - now;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+
+  countdown.innerHTML = `Quedan ${days} días y ${hours} horas`;
+}, 1000);
+</script>
 
 </body>
 </html>
